@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>在线简历生成器</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <div class="toolbar-title">
+      <h1>在线简历生成器</h1>
+      <span>填写左侧信息，右侧实时生成简历，点击「导出 PDF」即可保存</span>
+    </div>
+    <div class="toolbar-actions">
+      <label class="template-selector">模板
+        <select id="template-select">
+          <option value="classic">蓝色经典</option>
+          <option value="dark">深色头部</option>
+          <option value="sidebar">侧边栏双栏</option>
+        </select>
+      </label>
+      <button type="button" id="btn-demo">填充示例数据</button>
+      <button type="button" id="btn-clear">清空</button>
+      <button type="button" id="btn-export" class="primary">导出 PDF</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="form-panel" id="form-panel"></section>
+    <section class="preview-panel">
+      <div class="resume-page" id="resume"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
