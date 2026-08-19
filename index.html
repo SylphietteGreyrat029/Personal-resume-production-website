@@ -11,7 +11,7 @@
   <header class="toolbar">
     <div class="toolbar-title">
       <h1>在线简历生成器</h1>
-      <span>填写左侧信息，右侧实时生成简历，点击「导出 PDF」即可保存</span>
+      <span>填写左侧信息，右侧实时生成简历；支持 AI 智能美化经历描述，一键导出 PDF</span>
     </div>
     <div class="toolbar-actions">
       <label class="template-selector">模板
@@ -21,6 +21,7 @@
           <option value="sidebar">侧边栏双栏</option>
         </select>
       </label>
+      <button type="button" id="btn-ai-config">AI 设置</button>
       <button type="button" id="btn-demo">填充示例数据</button>
       <button type="button" id="btn-clear">清空</button>
       <button type="button" id="btn-export" class="primary">导出 PDF</button>
@@ -33,6 +34,34 @@
       <div class="resume-page" id="resume"></div>
     </section>
   </main>
+
+  <!-- AI 设置弹窗 -->
+  <div class="modal-mask" id="ai-modal" hidden>
+    <div class="modal">
+      <h3>AI 设置</h3>
+      <p class="modal-tip">API Key 仅保存在你自己浏览器的 localStorage 中，不会上传到任何服务器。支持 DeepSeek、通义千问、智谱 GLM、Kimi、OpenAI 及任意 OpenAI 兼容接口，需选择允许浏览器跨域（CORS）调用的服务商。</p>
+      <div class="form-item">
+        <label>服务商</label>
+        <select id="ai-provider"></select>
+      </div>
+      <div class="form-item">
+        <label>接口地址（Base URL）</label>
+        <input type="text" id="ai-baseurl" placeholder="https://api.deepseek.com/v1" />
+      </div>
+      <div class="form-item">
+        <label>模型名称</label>
+        <input type="text" id="ai-model" placeholder="deepseek-chat" />
+      </div>
+      <div class="form-item">
+        <label>API Key</label>
+        <input type="password" id="ai-key" placeholder="sk-..." autocomplete="off" />
+      </div>
+      <div class="modal-actions">
+        <button type="button" id="ai-cancel">取消</button>
+        <button type="button" id="ai-save" class="primary">保存</button>
+      </div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
